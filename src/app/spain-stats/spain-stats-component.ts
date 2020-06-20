@@ -15,12 +15,12 @@ export class SpainStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.covid19ApiService.getSpain().subscribe((data)=>{
-      this.spain = data[data.length-1];
+      this.spain = data[ Object.keys(data).length-1];
       console.log(this.spain)
       });
     interval(5000).subscribe(x => {
       this.covid19ApiService.getSpain().subscribe((data)=>{
-        this.spain = data[data.length-1];
+        this.spain = data[Object.keys(data).length-1];
         console.log(this.spain)
         });
       });

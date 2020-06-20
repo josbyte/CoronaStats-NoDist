@@ -1,8 +1,21 @@
-<mat-table [dataSource]="dataSource">
-    <mat-header-cell *matHeaderCellDef>Policy Number</mat-header-cell>
-    <mat-cell *matCellDef="let policy"></mat-cell>
-    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
-
-</mat-table>
-    
+<table mat-table [dataSource]="tableArray" style="padding-left: 20em;"  matSort >
+    <ng-container matColumnDef="Pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pais </th>
+      <td mat-cell *matCellDef="let row"> {{row.Pais}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Infectados">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Infectados </th>
+        <td mat-cell *matCellDef="let row"> {{row.Infectados}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Muertes">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Muertes </th>
+        <td mat-cell *matCellDef="let row"> {{row.Muertes}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Curados">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Curados </th>
+        <td mat-cell *matCellDef="let row"> {{row.Curados}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+  </table>
